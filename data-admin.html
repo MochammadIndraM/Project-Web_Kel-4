@@ -75,56 +75,46 @@
             Sidebar start
         ***********************************-->
         <div class="dlabnav">
-            <div class="dlabnav-scroll">
+			<div class="dlabnav-scroll">
 				<ul class="metismenu" id="menu">
-                    <li><a href="index.html" aria-expanded="false">
+					<li><a href="index.html" aria-expanded="false">
 							<i class="fas fa-home"></i>
 							<span class="nav-text">Dashboard</span>
 						</a>
 
-                    </li>
-					
-                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
-						<i class="fas fa-info-circle"></i>
+					</li>
+
+					<li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+							<i class="fas fa-info-circle"></i>
 							<span class="nav-text">Master Data</span>
 						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="data-admin.html">Data Admin</a></li>
+						<ul aria-expanded="false">
+							<li><a href="data-admin.html">Data Admin</a></li>
 							<li><a href="data-customer.html">Data Customer</a></li>
 							<li><a href="data-daftar-harga-print.html">Daftar Harga Print</a></li>
-							<li><a href="data-barang.html">Data Barang</a></li>
-                        </ul>
-                    </li>
-				<div class="side-bar-profile">
-					<div class="d-flex align-items-center justify-content-between mb-3">
-						<div class="side-bar-profile-img">
-							<img src="images/user.jpg" alt="">
-						</div>
-						<div class="profile-info1">
-							<h4 class="fs-18 font-w500">Soeng Souy</h4>
-							<span>example@mail.com</span>
-						</div>
-						<div class="profile-button">
-							<i class="fas fa-caret-down scale5 text-light"></i>
-						</div>
-					</div>	
-					<div class="d-flex justify-content-between mb-2 progress-info">
-						<span class="fs-12"><i class="fas fa-star text-orange me-2"></i>Task Progress</span>
-						<span class="fs-12">20/45</span>
+							<li><a href="data-barang.html">Data Barangt</a></li>
+						</ul>
+					</li>
+					<li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+							<i class="fas fa-file-alt"></i>
+							<span class="nav-text">Transaksi</span>
+						</a>
+						<ul aria-expanded="false">
+							<li><a href="form-element.html">Invoice</a></li>
+							<li><a href="form-wizard.html">Bukti Pembayaran</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:void()" aria-expanded="false">
+							<i class="fas fa-table"></i>
+							<span class="nav-text">Riwayat</span>
+						</a>
+					</li>
+					<div class="copyright">
+						<p><strong>PRON TEAM</strong> © 2022 All Rights Reserved</p>
 					</div>
-					<div class="progress default-progress">
-						<div class="progress-bar bg-gradientf progress-animated" style="width: 45%; height:10px;" role="progressbar">
-							<span class="sr-only">45% Complete</span>
-						</div>
-					</div>
-				</div>
-				
-				<div class="copyright">
-					<p><strong>Fillow Saas Admin</strong> © 2021 All Rights Reserved</p>
-					<p class="fs-12">Made with <span class="heart"></span> by DexignLabs</p>
-				</div>
+				</ul>
 			</div>
-        </div>
+		</div>
         <!--**********************************
             Sidebar end
         ***********************************-->
@@ -138,7 +128,7 @@
                 <!-- row -->
 
                 <div class="row">
-					<div class="col-lg-12">
+					<div class="col-lg-8">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Data Admin</h4>
@@ -222,6 +212,38 @@
                             </div>
                         </div>
                     </div>
+					<div class="col-lg-4">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">Tambah Admin</h4>
+								</div>
+								<div class="card-body">
+									<div class="basic-form">
+										<form>
+											<div class="mb-3 row">
+                                                <label class="form-label">Nama</label>
+                                                <input type="text" class="form-control" placeholder="Masukkan Nama">
+                                            </div>
+											<div class="mb-3 row">
+                                                <label class="form-label">Email</label>
+                                                <input type="text" class="form-control" placeholder="Masukkan Email">
+                                            </div>
+											<div class="mb-3 row">
+                                                <label class="form-label">Password</label>
+                                                <input type="text" class="form-control" placeholder=" Masukkan Password">
+                                            </div>
+											
+											<div class="mb-3 row">
+												<div class="col-sm-10">
+													<button type="submit" class="btn btn-primary">Tambah</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+			
+                    </div>
                 </div>
             </div>
         </div>
@@ -235,11 +257,7 @@
         <!--**********************************
             Footer start
         ***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="../index.htm" target="_blank">DexignLab</a> 2021</p>
-            </div>
-        </div>
+        
         <!--**********************************
             Footer end
         ***********************************-->
