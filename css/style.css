@@ -3908,7 +3908,7 @@ textarea.form-control-lg {
     color: #524223; }
 
 .alert-danger {
-  color: #971c32;
+  color: #000;
   background-color: #fed5dd;
   border-color: #fec0cb; }
   .alert-danger .alert-link {
@@ -21548,6 +21548,8 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   border-color: transparent; }
 
 .alert {
+  background-color: #ebebeb;
+  margin-top: 15px;
   border-radius: 1.25rem;
   padding: 1rem 1.5rem; }
   .alert p {

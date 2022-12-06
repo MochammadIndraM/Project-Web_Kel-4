@@ -222,7 +222,7 @@
 		<div class="dlabnav">
 			<div class="dlabnav-scroll">
 				<ul class="metismenu" id="menu">
-					<li><a href="index.html" aria-expanded="false">
+					<li><a href="index.php" aria-expanded="false">
 							<i class="fas fa-home"></i>
 							<span class="nav-text">Dashboard</span>
 						</a>
@@ -234,10 +234,10 @@
 							<span class="nav-text">Master Data</span>
 						</a>
 						<ul aria-expanded="false">
-							<li><a href="data-admin.html">Data Admin</a></li>
+							<li><a href="data-admin.php">Data Admin</a></li>
 							<li><a href="data-customer.html">Data Customer</a></li>
 							<li><a href="data-daftar-harga-print.html">Daftar Harga Print</a></li>
-							<li><a href="data-barang.html">Data Barangt</a></li>
+							<li><a href="data-barang.html">Data Barang</a></li>
 						</ul>
 					</li>
 					<li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
