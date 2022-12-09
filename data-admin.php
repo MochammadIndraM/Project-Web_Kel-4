@@ -182,7 +182,7 @@
 										</svg>
 										<span class="ms-2">Profile </span>
 									</a>
-									\
+
 									<a href="page-error-404.html" class="dropdown-item ai-icon">
 										<svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 											<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
@@ -253,9 +253,9 @@
 			<div class="container-fluid">
 
 				<!-- row -->
-
+				<button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#Modaltambahadmin">Tambah Admin</button>
 				<div class="row">
-					<div class="col-lg-8">
+					<div class="col-lg-12">
 						<div class="card">
 							<div class="card-header">
 								<h4 class="card-title">Data Admin</h4>
@@ -271,7 +271,7 @@
 												<th><strong>Email</strong></th>
 												<th><strong>Password</strong></th>
 												<th><strong>No HP</strong></th>
-												<th><strong></strong></th>
+												<th><strong>Aksi</strong></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -284,7 +284,7 @@
 												$nama       = $r2['username'];
 												$email       = $r2['email'];
 												$password     = $r2['password'];
-												$nohp     = $r2['ho_hp'];
+												$nohp     = $r2['no_hp'];
 
 
 											?>
@@ -295,10 +295,11 @@
 													<td scope="row"><?php echo $password ?></td>
 													<td scope="row"><?php echo $nohp ?></td>
 													<td scope="row">
-														<a href="data-admin.php?op=edit&id=<?php echo $id ?>"><button type="button" class="btn btn-warning">Edit</button></a>
-														<a href="data-admin.php?op=delete&id=<?php echo $id ?>" onclick="return confirm('Yakin mau delete data?')"><button type="button" class="btn btn-danger">Delete</button></a>
+														<a href="#" class="btn btn-warning mb-2" data-bs-toggle="modal" data-bs-target="#Modaleditadmin">Edit</a>
+														<a href="#" class="btn btn-danger mb-2" data-bs-toggle="modal" data-bs-target="#Modalhapusadmin">Hapus</a>
 													</td>
 												</tr>
+
 											<?php
 											}
 											?>
@@ -308,42 +309,85 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4">
-						<div class="card">
-							<div class="card-header">
-								<h4 class="card-title">Tambah Admin</h4>
+				</div>
+				<!-- Modal Tambah -->
+				<div class="modal fade" id="Modaltambahadmin" style="display: none;" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Tambah Admin</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal">
+								</button>
 							</div>
-							<div class="card-body">
-								<div class="basic-form">
-									<form action="controllers/controlleradmin.php" method="post">
-										<div class="mb-3 row">
-											<label class="form-label">Nama</label>
-											<input type="text" class="form-control" placeholder="Masukkan Nama" name="username">
-										</div>
-										<div class="mb-3 row">
-											<label class="form-label">Email</label>
-											<input type="text" class="form-control" placeholder="Masukkan Email" name="email">
-										</div>
-										<div class="mb-3 row">
-											<label class="form-label">Password</label>
-											<input type="text" class="form-control" placeholder=" Masukkan Password" name="password">
-										</div>
-										<div class="mb-3 row">
-											<label class="form-label">No HP</label>
-											<input type="text" class="form-control" placeholder="Masukkan No HP" name="ho_hp">
-										</div>
-										<div class="mb-3 row">
-											<div class="col-sm-10">
-												<button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
-											</div>
-										</div>
-									</form>
-								</div>
+							<div class="modal-body">
+								<form action="controllers/crudadmin.php" method="post">
+									<div class="mb-3 row">
+										<label class="form-label">Nama</label>
+										<input type="text" class="form-control" placeholder="Masukkan Nama" name="tnama">
+									</div>
+									<div class="mb-3 row">
+										<label class="form-label">Email</label>
+										<input type="text" class="form-control" placeholder="Masukkan Email" name="temail">
+									</div>
+									<div class="mb-3 row">
+										<label class="form-label">Password</label>
+										<input type="text" class="form-control" placeholder=" Masukkan Password" name="tpassword">
+									</div>
+									<div class="mb-3 row">
+										<label class="form-label">No HP</label>
+										<input type="text" class="form-control" placeholder="Masukkan No HP" name="tnohp">
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+										<button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
+									</div>
+								</form>
 							</div>
 						</div>
-
 					</div>
 				</div>
+				<!-- Modal Tambah End -->
+
+				<!-- Modal Edit -->
+				<div class="modal fade" id="Modaleditadmin" style="display: none;" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Edit Data Admin</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal">
+								</button>
+							</div>
+							<div class="modal-body">
+								<form action="controllers/crudadmin.php" method="post">
+								<input type="text" class="form-control" value="<?= $id ?>"
+                                                    name="tiduser" readonly>
+									<div class="mb-3 row">
+										<label class="form-label">Nama</label>
+										<input type="text" class="form-control" placeholder="Masukkan Nama" name="tnama" value="<?= $nama ?>" required>
+									</div>
+									<div class="mb-3 row">
+										<label class="form-label">Email</label>
+										<input type="text" class="form-control" placeholder="Masukkan Email" name="temail" value="<?= $email ?>" required>
+									</div>
+									<div class="mb-3 row">
+										<label class="form-label">Password</label>
+										<input type="text" class="form-control" placeholder=" Masukkan Password" name="tpassword"value="<?= $password ?>" required>
+									</div>
+									<div class="mb-3 row">
+										<label class="form-label">No HP</label>
+										<input type="text" class="form-control" placeholder="Masukkan No HP" name="tnohp"value="<?= $nohp ?>" required>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+										<button type="submit" class="btn btn-primary" name="tambah">Edit</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Modal Edit End -->
+
 			</div>
 		</div>
 		<!--**********************************
