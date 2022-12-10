@@ -235,7 +235,7 @@
 						</a>
 						<ul aria-expanded="false">
 							<li><a href="data-admin.php">Data Admin</a></li>
-							<li><a href="data-customer.html">Data Customer</a></li>
+							<li><a href="data-customer.php">Data Customer</a></li>
 							<li><a href="data-daftar-harga-print.html">Daftar Harga Print</a></li>
 							<li><a href="data-barang.html">Data Barang</a></li>
 						</ul>

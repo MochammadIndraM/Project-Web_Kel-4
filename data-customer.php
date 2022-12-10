@@ -267,123 +267,164 @@
                 <!-- row -->
 
                 <div class="row">
-					<div class="col-lg-8">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Data Customer</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-responsive-md">
-                                        <thead>
-                                            <tr>
-                                                <th style="width:50px;">
-													<div class="form-check custom-checkbox checkbox-success check-lg me-3">
-														<input type="checkbox" class="form-check-input" id="checkAll" required="">
-														<label class="form-check-label" for="checkAll"></label>
-													</div>
-												</th>
-                                                <th><strong>NO.</strong></th>
-                                                <th><strong>NAMA</strong></th>
-                                                <th><strong>Email</strong></th>
-                                                <th><strong>Password</strong></th>
-                                                <th><strong></strong></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-													<div class="form-check custom-checkbox checkbox-success check-lg me-3">
-														<input type="checkbox" class="form-check-input" id="customCheckBox2" required="">
-														<label class="form-check-label" for="customCheckBox2"></label>
-													</div>
-												</td>
-                                                <td><strong>1</strong></td>
-                                                <td><div class="d-flex align-items-center"><span class="w-space-no">Dr. Jackson</span></div></td>
-                                                <td>example@example.com	</td>
-                                                <td> Password</td>
-                                                <td>
-													<div class="d-flex">
-														<a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-														<a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-													</div>
-												</td>
-                                            </tr>
-											<tr>
-                                                <td>
-													<div class="form-check custom-checkbox checkbox-success check-lg me-3">
-														<input type="checkbox" class="form-check-input" id="customCheckBox3" required="">
-														<label class="form-check-label" for="customCheckBox3"></label>
-													</div>
-												</td>
-                                                <td><strong>2</strong></td>
-                                                <td><div class="d-flex align-items-center"><span class="w-space-no">Dr. Jackson</span></div></td>
-                                                <td>example@example.com	</td>
-                                                <td>Password</td>
-                                                <td>
-													<div class="d-flex">
-														<a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-														<a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-													</div>
-												</td>
-                                            </tr>
-											<tr>
-                                                <td>
-													<div class="form-check custom-checkbox checkbox-success check-lg me-3">
-														<input type="checkbox" class="form-check-input" id="customCheckBox4" required="">
-														<label class="form-check-label" for="customCheckBox4"></label>
-													</div>
-												</td>
-                                                <td><strong>3</strong></td>
-                                                <td><div class="d-flex align-items-center"><span class="w-space-no">Dr. Jackson</span></div></td>
-                                                <td>example@example.com	</td>
-                                                <td>Password</td>
-                                                <td>
-													<div class="d-flex">
-														<a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-														<a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-													</div>
-												</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					<div class="col-lg-4">
+					<div class="col-lg-12">
 						<div class="card">
 							<div class="card-header">
-								<h4 class="card-title">Tambah Customer</h4>
+								<h4 class="card-title">Data Customer</h4>
+
 							</div>
 							<div class="card-body">
-								<div class="basic-form">
-									<form>
-										<div class="mb-3 row">
-											<label class="form-label">Nama</label>
-											<input type="text" class="form-control" placeholder="Masukkan Nama">
-										</div>
-										<div class="mb-3 row">
-											<label class="form-label">Email</label>
-											<input type="text" class="form-control" placeholder="Masukkan Email">
-										</div>
-										<div class="mb-3 row">
-											<label class="form-label">Password</label>
-											<input type="text" class="form-control" placeholder=" Masukkan Password">
-										</div>
-										
-										<div class="mb-3 row">
-											<div class="col-sm-10">
-												<button type="submit" class="btn btn-primary">Tambah</button>
-											</div>
-										</div>
-									</form>
+								<button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#Modaltambahcustomer">Tambah Customer</button>
+								<div class="table-responsive">
+									<table class="table table-responsive-md">
+										<thead>
+											<tr>
+
+												<th><strong>NO.</strong></th>
+												<th><strong>NAMA</strong></th>
+												<th><strong>Email</strong></th>
+												<th><strong>Password</strong></th>
+												<th><strong>No HP</strong></th>
+												<th><strong>Aksi</strong></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php include 'koneksi.php';
+											$sql2   = "SELECT * FROM user WHERE role = 'customer';";
+											$q2     = mysqli_query($koneksi, $sql2);
+											$urut   = 1;
+											while ($r2 = mysqli_fetch_array($q2)) {
+												$id         = $r2['id_user'];
+												$nama       = $r2['username'];
+												$email       = $r2['email'];
+												$password     = $r2['password'];
+												$nohp     = $r2['no_hp'];
+
+
+											?>
+												<tr>
+													<th scope="row"><?php echo $urut++ ?></th>
+													<td scope="row"><?php echo $nama ?></td>
+													<td scope="row"><?php echo $email ?></td>
+													<td scope="row"><?php echo $password ?></td>
+													<td scope="row"><?php echo $nohp ?></td>
+													<td scope="row">
+														<button type="button" class="btn btn-warning mb-2" onclick="editmodal('<?= $id ?>', '<?= $nama ?>', '<?= $email ?>', '<?= $password ?>', '<?= $nohp ?>')">Edit</button>
+														<button type="button" class="btn btn-danger mb-2" onclick="hapusmodal('<?= $id ?>')">Hapus</button>
+													</td>
+												</tr>
+
+											<?php
+											}
+											?>
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>
-		
+					</div>
 				</div>
-                </div>
+				<!-- Modal Tambah -->
+				<div class="modal fade" id="Modaltambahcustomer" style="display: none;" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Tambah Customer</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal">
+								</button>
+							</div>
+							<div class="modal-body">
+								<form action="controllers/crudcustomer.php" method="post">
+									<div class="mb-3 row">
+										<label class="form-label">Nama</label>
+										<input type="text" class="form-control" placeholder="Masukkan Nama" name="tnama">
+									</div>
+									<div class="mb-3 row">
+										<label class="form-label">Email</label>
+										<input type="text" class="form-control" placeholder="Masukkan Email" name="temail">
+									</div>
+									<div class="mb-3 row">
+										<label class="form-label">Password</label>
+										<input type="text" class="form-control" placeholder=" Masukkan Password" name="tpassword">
+									</div>
+									<div class="mb-3 row">
+										<label class="form-label">No HP</label>
+										<input type="text" class="form-control" placeholder="Masukkan No HP" name="tnohp">
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+										<button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Modal Tambah End -->
+
+				<!-- Modal Edit -->
+				<div class="modal fade" id="Modaleditcustomer" style="display: none;" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Edit Data Customer</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal">
+								</button>
+							</div>
+							<div class="modal-body">
+								<form action="controllers/crudcustomer.php" method="post">
+									<input type="hidden" class="form-control" id="idcustomer" name="tiduser">
+									<div class="mb-3 row">
+										<label class="form-label">Nama</label>
+										<input type="text" class="form-control" id="namacustomer" placeholder="Masukkan Nama" name="tnama">
+									</div>
+									<div class="mb-3 row">
+										<label class="form-label">Email</label>
+										<input type="text" class="form-control" placeholder="Masukkan Email" id="emailcustomer" name="temail">
+									</div>
+									<div class="mb-3 row">
+										<label class="form-label">Password</label>
+										<input type="text" class="form-control" placeholder=" Masukkan Password" id="passwordcustomer" name="tpassword">
+									</div>
+									<div class="mb-3 row">
+										<label class="form-label">No HP</label>
+										<input type="text" class="form-control" placeholder="Masukkan No HP" id="nohpcustomer" name="tnohp">
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+										<button type="submit" class="btn btn-primary" name="edit">Edit</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Modal Edit End -->
+
+				<!-- Modal Hapus -->
+				<div class="modal fade" id="Modalhapuscustomer" style="display: none;" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Hapus Data Customer</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal">
+								</button>
+							</div>
+							<div class="modal-body">
+								<form action="controllers/crudcustomer.php" method="post">
+									<input type="hidden" class="form-control" id="idcustomerhapus" name="tiduser">
+									<h5 class="text-center"> Apakah Anda yakin akan menghapus data ini?</h5>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+										<button type="submit" class="btn btn-primary" name="hapus">Hapus</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Modal Hapus End -->
+                
             </div>
         </div>
         <!--**********************************
@@ -442,8 +483,27 @@
     <script src="js/custom.min.js"></script>
 	<script src="js/dlabnav-init.js"></script>
 	<script src="js/demo.js"></script>
-    <script src="js/styleSwitcher.js"></script>
+    <!-- <script src="js/styleSwitcher.js"></script> -->
 	<script>
+		function editmodal(id, nama, email, password, nohp) {
+			// console.log(id + nama + email + password + nohp);
+
+			$('#idcustomer').val(id);
+			$('#namacustomer').val(nama);
+			$('#emailcustomer').val(email);
+			$('#passwordcustomer').val(password);
+			$('#nohpcustomer').val(nohp);
+
+			$('#Modaleditcustomer').modal('show');
+		}
+
+		function hapusmodal(id) {
+			// console.log(id + nama + email + password + nohp);
+
+			$('#idcustomerhapus').val(id);
+
+			$('#Modalhapuscustomer').modal('show');
+		}
 		function cardsCenter()
 		{
 			

@@ -1,5 +1,5 @@
 ﻿
-﻿<?php
+<?php
 $koneksi = mysqli_connect("localhost", "root", "", "pron");
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
@@ -70,7 +70,8 @@ if (isset($_POST['submit'])) {
 	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
     <link href="css/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+
 
 </head>
 
@@ -123,48 +124,7 @@ if (isset($_POST['submit'])) {
     <script src="js/dlabnav-init.js"></script>
 	<!-- <script src="js/styleSwitcher.js"></script> -->
     
-    <script src="../js/sweetalert2.min.js"></script>
-    <script>
-        $('#submit').on('click', function() {
-            $.ajax({
-                url: '../controllers/logincontroller.php',
-                type: 'post',
-                data: {
-                    'type': 'submit',
-                    'email': $('#email').val(),
-                    'password': $('#password').val(),
-                },
-                success: function(res) {
-                    const data = JSON.parse(res);
-                    if (data.status == 'error') {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Gagal',
-                            text: data.msg,
-                        });
-                    }else {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Berhasil',
-                            text: data.msg,
-                        }).then(function() {
-                            window.location.replace("index.php");
-                        });
-                    }
-                }
-            });
-        });
-    </script>
-
-    <?php if (isset($_GET['error'])) { ?><script>
-            Swal.fire(
-                'Gagal',
-                '<?php echo $_GET['error']; ?>',
-                'error'
-            ).then((result) => {
-                location.replace('page-login.php');
-            });
-        </script><?php } ?>
+    <script src="js/sweetalert2.min.js"></script>
 
 </body>
 </html>
