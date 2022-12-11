@@ -87,6 +87,4 @@ if (isset($_POST['tambah'])) {
         }
 
     
-} 
-
-?>
+}

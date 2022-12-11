@@ -216,10 +216,10 @@
 							<span class="nav-text">Master Data</span>
 						</a>
 						<ul aria-expanded="false">
-							<li><a href="data-admin.html">Data Admin</a></li>
-							<li><a href="data-customer.html">Data Customer</a></li>
+							<li><a href="data-admin.php">Data Admin</a></li>
+							<li><a href="data-customer.php">Data Customer</a></li>
 							<li><a href="data-daftar-harga-print.html">Daftar Harga Print</a></li>
-							<li><a href="data-barang.html">Data Barang</a></li>
+							<li><a href="data-barang.php">Data Barang</a></li>
 						</ul>
 					</li>
 					<li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
@@ -253,16 +253,16 @@
 			<div class="container-fluid">
 
 				<!-- row -->
-				
+
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="card">
 							<div class="card-header">
 								<h4 class="card-title">Data Admin</h4>
-								
+
 							</div>
 							<div class="card-body">
-							<button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#Modaltambahadmin">Tambah Admin</button>
+								<button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#Modaltambahadmin">Tambah Admin</button>
 								<div class="table-responsive">
 									<table class="table table-responsive-md">
 										<thead>
@@ -297,8 +297,8 @@
 													<td scope="row"><?php echo $password ?></td>
 													<td scope="row"><?php echo $nohp ?></td>
 													<td scope="row">
-														<button type="button" class="btn btn-warning mb-2"  onclick="editmodal('<?= $id ?>', '<?= $nama ?>', '<?= $email ?>', '<?= $password ?>', '<?= $nohp ?>')">Edit</button>
-														<button type="button" class="btn btn-danger mb-2"  onclick="hapusmodal('<?= $id ?>')">Hapus</button>
+														<button type="button" class="btn btn-warning mb-2" onclick="editmodal('<?= $id ?>', '<?= $nama ?>', '<?= $email ?>', '<?= $password ?>', '<?= $nohp ?>')">Edit</button>
+														<button type="button" class="btn btn-danger mb-2" onclick="hapusmodal('<?= $id ?>')">Hapus</button>
 													</td>
 												</tr>
 
@@ -364,15 +364,15 @@
 									<input type="hidden" class="form-control" id="idadmin" name="tiduser">
 									<div class="mb-3 row">
 										<label class="form-label">Nama</label>
-										<input type="text" class="form-control" id="namaadmin" placeholder="Masukkan Nama" name="tnama" >
+										<input type="text" class="form-control" id="namaadmin" placeholder="Masukkan Nama" name="tnama">
 									</div>
 									<div class="mb-3 row">
 										<label class="form-label">Email</label>
-										<input type="text" class="form-control" placeholder="Masukkan Email" id="emailadmin" name="temail" >
+										<input type="text" class="form-control" placeholder="Masukkan Email" id="emailadmin" name="temail">
 									</div>
 									<div class="mb-3 row">
 										<label class="form-label">Password</label>
-										<input type="text" class="form-control" placeholder=" Masukkan Password" id="passwordadmin" name="tpassword" >
+										<input type="text" class="form-control" placeholder=" Masukkan Password" id="passwordadmin" name="tpassword">
 									</div>
 									<div class="mb-3 row">
 										<label class="form-label">No HP</label>
@@ -488,6 +488,7 @@
 
 			$('#Modalhapusadmin').modal('show');
 		}
+
 		function cardsCenter() {
 
 			/*  testimonial one function by = owl.carousel.js */

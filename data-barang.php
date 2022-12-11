@@ -182,7 +182,7 @@
 										</svg>
 										<span class="ms-2">Profile </span>
 									</a>
-									\
+
 									<a href="page-error-404.html" class="dropdown-item ai-icon">
 										<svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 											<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
@@ -258,46 +258,40 @@
 					<div class="col-lg-12">
 						<div class="card">
 							<div class="card-header">
-								<h4 class="card-title">Data Customer</h4>
+								<h4 class="card-title">Data Barang</h4>
 
 							</div>
 							<div class="card-body">
-								<button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#Modaltambahcustomer">Tambah Customer</button>
+								<button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#Modaltambahbarang">Tambah Barang</button>
 								<div class="table-responsive">
 									<table class="table table-responsive-md">
 										<thead>
 											<tr>
 
 												<th><strong>NO.</strong></th>
-												<th><strong>NAMA</strong></th>
-												<th><strong>Email</strong></th>
-												<th><strong>Password</strong></th>
-												<th><strong>No HP</strong></th>
+												<th><strong>NAMA BARANG</strong></th>
+												<th><strong>Harga</strong></th>
 												<th><strong>Aksi</strong></th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php include 'koneksi.php';
-											$sql2   = "SELECT * FROM user WHERE role = 'customer';";
+											$sql2   = "SELECT * FROM barang";
 											$q2     = mysqli_query($koneksi, $sql2);
 											$urut   = 1;
 											while ($r2 = mysqli_fetch_array($q2)) {
-												$id         = $r2['id_user'];
-												$nama       = $r2['username'];
-												$email       = $r2['email'];
-												$password     = $r2['password'];
-												$nohp     = $r2['no_hp'];
+												$id         = $r2['id_barang'];
+												$nama       = $r2['nama_barang'];
+												$harga       = $r2['harga_jual'];
 
 
 											?>
 												<tr>
 													<th scope="row"><?php echo $urut++ ?></th>
 													<td scope="row"><?php echo $nama ?></td>
-													<td scope="row"><?php echo $email ?></td>
-													<td scope="row"><?php echo $password ?></td>
-													<td scope="row"><?php echo $nohp ?></td>
+													<td scope="row"><?php echo $harga ?></td>
 													<td scope="row">
-														<button type="button" class="btn btn-warning mb-2" onclick="editmodal('<?= $id ?>', '<?= $nama ?>', '<?= $email ?>', '<?= $password ?>', '<?= $nohp ?>')">Edit</button>
+														<button type="button" class="btn btn-warning mb-2" onclick="editmodal('<?= $id ?>', '<?= $nama ?>', '<?= $harga ?>')">Edit</button>
 														<button type="button" class="btn btn-danger mb-2" onclick="hapusmodal('<?= $id ?>')">Hapus</button>
 													</td>
 												</tr>
@@ -313,31 +307,23 @@
 					</div>
 				</div>
 				<!-- Modal Tambah -->
-				<div class="modal fade" id="Modaltambahcustomer" style="display: none;" aria-hidden="true">
+				<div class="modal fade" id="Modaltambahbarang" style="display: none;" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title">Tambah Customer</h5>
+								<h5 class="modal-title">Tambah Barang</h5>
 								<button type="button" class="btn-close" data-bs-dismiss="modal">
 								</button>
 							</div>
 							<div class="modal-body">
-								<form action="controllers/crudcustomer.php" method="post">
+								<form action="controllers/crudbarang.php" method="post">
 									<div class="mb-3 row">
 										<label class="form-label">Nama</label>
-										<input type="text" class="form-control" placeholder="Masukkan Nama" name="tnama">
+										<input type="text" class="form-control" placeholder="Masukkan Nama barang" name="tnama">
 									</div>
 									<div class="mb-3 row">
-										<label class="form-label">Email</label>
-										<input type="text" class="form-control" placeholder="Masukkan Email" name="temail">
-									</div>
-									<div class="mb-3 row">
-										<label class="form-label">Password</label>
-										<input type="text" class="form-control" placeholder=" Masukkan Password" name="tpassword">
-									</div>
-									<div class="mb-3 row">
-										<label class="form-label">No HP</label>
-										<input type="text" class="form-control" placeholder="Masukkan No HP" name="tnohp">
+										<label class="form-label">Harga</label>
+										<input type="text" class="form-control" placeholder="Masukkan Harga" name="tharga">
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
@@ -351,32 +337,24 @@
 				<!-- Modal Tambah End -->
 
 				<!-- Modal Edit -->
-				<div class="modal fade" id="Modaleditcustomer" style="display: none;" aria-hidden="true">
+				<div class="modal fade" id="Modaleditbarang" style="display: none;" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title">Edit Data Customer</h5>
+								<h5 class="modal-title">Edit Data Admin</h5>
 								<button type="button" class="btn-close" data-bs-dismiss="modal">
 								</button>
 							</div>
 							<div class="modal-body">
-								<form action="controllers/crudcustomer.php" method="post">
-									<input type="hidden" class="form-control" id="idcustomer" name="tiduser">
+								<form action="controllers/crudbarang.php" method="post">
+									<input type="hidden" class="form-control" id="idbarang" name="tidbarang">
 									<div class="mb-3 row">
-										<label class="form-label">Nama</label>
-										<input type="text" class="form-control" id="namacustomer" placeholder="Masukkan Nama" name="tnama">
+										<label class="form-label">Nama Barang</label>
+										<input type="text" class="form-control" id="namabarang" placeholder="Masukkan Nama Barang" name="tnama">
 									</div>
 									<div class="mb-3 row">
-										<label class="form-label">Email</label>
-										<input type="text" class="form-control" placeholder="Masukkan Email" id="emailcustomer" name="temail">
-									</div>
-									<div class="mb-3 row">
-										<label class="form-label">Password</label>
-										<input type="text" class="form-control" placeholder=" Masukkan Password" id="passwordcustomer" name="tpassword">
-									</div>
-									<div class="mb-3 row">
-										<label class="form-label">No HP</label>
-										<input type="text" class="form-control" placeholder="Masukkan No HP" id="nohpcustomer" name="tnohp">
+										<label class="form-label">Harga</label>
+										<input type="text" class="form-control" placeholder="Masukkan Harga" id="hargabarang" name="tharga">
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
@@ -390,17 +368,17 @@
 				<!-- Modal Edit End -->
 
 				<!-- Modal Hapus -->
-				<div class="modal fade" id="Modalhapuscustomer" style="display: none;" aria-hidden="true">
+				<div class="modal fade" id="Modalhapusbarang" style="display: none;" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title">Hapus Data Customer</h5>
+								<h5 class="modal-title">Hapus Data Barang</h5>
 								<button type="button" class="btn-close" data-bs-dismiss="modal">
 								</button>
 							</div>
 							<div class="modal-body">
-								<form action="controllers/crudcustomer.php" method="post">
-									<input type="hidden" class="form-control" id="idcustomerhapus" name="tiduser">
+								<form action="controllers/crudbarang.php" method="post">
+									<input type="hidden" class="form-control" id="idbaranghapus" name="tidbarang">
 									<h5 class="text-center"> Apakah Anda yakin akan menghapus data ini?</h5>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
@@ -425,11 +403,7 @@
 		<!--**********************************
             Footer start
         ***********************************-->
-		<div class="footer">
-			<div class="copyright">
-				<p>Copyright © Designed &amp; Developed by <a href="../index.htm" target="_blank">DexignLab</a> 2021</p>
-			</div>
-		</div>
+
 		<!--**********************************
             Footer end
         ***********************************-->
@@ -473,24 +447,23 @@
 	<script src="js/demo.js"></script>
 	<!-- <script src="js/styleSwitcher.js"></script> -->
 	<script>
-		function editmodal(id, nama, email, password, nohp) {
+		function editmodal(id, nama, harga) {
 			// console.log(id + nama + email + password + nohp);
 
-			$('#idcustomer').val(id);
-			$('#namacustomer').val(nama);
-			$('#emailcustomer').val(email);
-			$('#passwordcustomer').val(password);
-			$('#nohpcustomer').val(nohp);
+			$('#idbarang').val(id);
+			$('#namabarang').val(nama);
+			$('#hargabarang').val(harga);
+	
 
-			$('#Modaleditcustomer').modal('show');
+			$('#Modaleditbarang').modal('show');
 		}
 
 		function hapusmodal(id) {
 			// console.log(id + nama + email + password + nohp);
 
-			$('#idcustomerhapus').val(id);
+			$('#idbaranghapus').val(id);
 
-			$('#Modalhapuscustomer').modal('show');
+			$('#Modalhapusbarang').modal('show');
 		}
 
 		function cardsCenter() {
