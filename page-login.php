@@ -1,6 +1,13 @@
-﻿
-<?php
+﻿<?php
 $koneksi = mysqli_connect("localhost", "root", "", "pron");
+
+session_start();
+
+$status = "";
+if (isset($_GET["status"])) {
+    $status = $_GET["status"];
+}
+
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $pass = $_POST['password'];
@@ -14,36 +21,21 @@ if (isset($_POST['submit'])) {
             $userName = $row['username'];
             $level = $row['role'];
         }
-        session_start();
+
         if ($num != 0) {
             if ($userVal == $email && $passVal == $pass) {
                 // header('Location: home.php?user_fullname='.urlencode($username));
-                $_SESSION['username'] = $username;
                 $_SESSION['role'] = $level;
-                header('location: index.php');
+                header('Location: page-login.php?status=sukses');
+                //  
             } else {
-                echo '<div class="alert alert-danger solid alert-dismissible fade show">
-                <svg viewBox="0 0 24 24" width="24 " height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                <strong>Error!</strong> Email atau Password salah!
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
-                </button>
-            </div>';
+                header('Location: page-login.php?status=errorepas');
             }
         } else {
-            echo '<div class="alert alert-danger solid alert-dismissible fade show">
-                <svg viewBox="0 0 24 24" width="24 " height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                <strong>Error!</strong> User tidak ditemukan!
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
-                </button>
-            </div>';
+            header('Location: page-login.php?status=errornotfound');
         }
     } else {
-        echo '<div class="alert alert-danger solid alert-dismissible fade show">
-                <svg viewBox="0 0 24 24" width="24 " height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                <strong>Error!</strong> Data tidak boleh kosong!
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
-                </button>
-            </div>';
+        header('Location: page-login.php?status=errornodata');
     }
 }
 ?>
@@ -52,25 +44,26 @@ if (isset($_POST['submit'])) {
 
 <head>
     <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords" content="">
-	<meta name="author" content="">
-	<meta name="robots" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
-	<meta property="og:title" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
-	<meta property="og:description" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
-	<meta property="og:image" content="https://fillow.dexignlab.com/xhtml/social-image.png">
-	<meta name="format-detection" content="telephone=no">
-	
-	<!-- PAGE TITLE HERE -->
-	<title>Admin Dashboard</title>
-	
-	<!-- FAVICONS ICON -->
-	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="robots" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
+    <meta property="og:title" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
+    <meta property="og:description" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
+    <meta property="og:image" content="https://fillow.dexignlab.com/xhtml/social-image.png">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- PAGE TITLE HERE -->
+    <title>Admin Dashboard</title>
+
+    <!-- FAVICONS ICON -->
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
     <link href="css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <script src="js/sweetalert2.min.js"></script>
 
 
 </head>
@@ -84,7 +77,7 @@ if (isset($_POST['submit'])) {
                         <div class="row no-gutters">
                             <div class="col-xl-12">
                                 <div class="auth-form">
-									
+
                                     <h4 class="text-center mb-4">Sign in your account</h4>
                                     <form action="page-login.php" method="post">
                                         <div class="mb-3">
@@ -104,7 +97,7 @@ if (isset($_POST['submit'])) {
                                             <button type="submit" class="btn btn-primary btn-block" name="submit">Sign In</button>
                                         </div>
                                     </form>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -122,9 +115,52 @@ if (isset($_POST['submit'])) {
     <script src="vendor/global/global.min.js"></script>
     <script src="js/custom.min.js"></script>
     <script src="js/dlabnav-init.js"></script>
-	<!-- <script src="js/styleSwitcher.js"></script> -->
-    
+    <!-- <script src="js/styleSwitcher.js"></script> -->
+
     <script src="js/sweetalert2.min.js"></script>
 
+    <script>
+        var p = '<?= $status ?>';
+        if ( p == "sukses") {
+            '<?php $_SESSION["status"] = "" ?>';
+                window.location.replace("index.php");
+
+        }
+        if ( p == "errorepas") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Email atau Password Salah',
+            }).then(function(){
+                '<?php $_SESSION["status"] = "" ?>';
+                window.location.replace("page-login.php");
+            });
+
+        }
+        if ( p == "errornotfound") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'User Tidak DItemukan',
+            }).then(function(){
+                '<?php $_SESSION["status"] = "" ?>';
+                window.location.replace("page-login.php");
+            });
+
+        }
+        if ( p == "errornodata") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Data Tidak Boleh Kosong',
+            }).then(function(){
+                '<?php $_SESSION["status"] = "" ?>';
+                window.location.replace("page-login.php");
+            });
+
+        }
+    </script>
+
 </body>
+
 </html>

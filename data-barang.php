@@ -227,7 +227,7 @@
 							<span class="nav-text">Transaksi</span>
 						</a>
 						<ul aria-expanded="false">
-							<li><a href="form-element.html">Invoice</a></li>
+							<li><a href="transaksi-invoice.php">Invoice</a></li>
 							<li><a href="form-wizard.html">Bukti Pembayaran</a></li>
 						</ul>
 					</li>
@@ -269,7 +269,9 @@
 											<tr>
 
 												<th><strong>NO.</strong></th>
+												<th><strong>FOTO BARANG</strong></th>
 												<th><strong>NAMA BARANG</strong></th>
+												<th><strong>kATEGORI</strong></th>
 												<th><strong>Harga</strong></th>
 												<th><strong>Aksi</strong></th>
 											</tr>
@@ -281,17 +283,23 @@
 											$urut   = 1;
 											while ($r2 = mysqli_fetch_array($q2)) {
 												$id         = $r2['id_barang'];
+												$foto       = $r2['foto_barang'];
 												$nama       = $r2['nama_barang'];
-												$harga       = $r2['harga_jual'];
+												$kategori    = $r2['kategori'];
+												$harga       = $r2['harga'];
 
 
 											?>
 												<tr>
 													<th scope="row"><?php echo $urut++ ?></th>
+													<td scope="row">
+														<img src="upload/<?php echo $foto ?>" alt="" width="300" height="200">
+													</td>
 													<td scope="row"><?php echo $nama ?></td>
+													<td scope="row"><?php echo $kategori ?></td>
 													<td scope="row"><?php echo $harga ?></td>
 													<td scope="row">
-														<button type="button" class="btn btn-warning mb-2" onclick="editmodal('<?= $id ?>', '<?= $nama ?>', '<?= $harga ?>')">Edit</button>
+														<button type="button" class="btn btn-warning mb-2" onclick="editmodal('<?= $id ?>', '<?= $nama ?>','<?= $kategori ?>', '<?= $harga ?>')">Edit</button>
 														<button type="button" class="btn btn-danger mb-2" onclick="hapusmodal('<?= $id ?>')">Hapus</button>
 													</td>
 												</tr>
@@ -316,10 +324,21 @@
 								</button>
 							</div>
 							<div class="modal-body">
-								<form action="controllers/crudbarang.php" method="post">
+								<form action="controllers/crudbarang.php" method="post" enctype="multipart/form-data">
+
+									<div class="mb-3 row input-group">
+										<label class="form-label">Foto</label>
+										<div class="form-file">
+											<input type="file" class="form-file-input form-control" name="foto">
+										</div>
+									</div>
 									<div class="mb-3 row">
 										<label class="form-label">Nama</label>
 										<input type="text" class="form-control" placeholder="Masukkan Nama barang" name="tnama">
+									</div>
+									<div class="mb-3 row">
+										<label class="form-label">Ketegori</label>
+										<input type="text" class="form-control" placeholder="Masukkan Kategori" name="tkategori">
 									</div>
 									<div class="mb-3 row">
 										<label class="form-label">Harga</label>
@@ -346,15 +365,25 @@
 								</button>
 							</div>
 							<div class="modal-body">
-								<form action="controllers/crudbarang.php" method="post">
-									<input type="hidden" class="form-control" id="idbarang" name="tidbarang">
+								<form action="controllers/crudbarang.php" method="post" enctype="multipart/form-data">
+								<input type="hidden" class="form-control" id="idbarang" name="tidbarang">
+									<div class="mb-3 row input-group">
+										<label class="form-label">Foto</label>
+										<div class="form-file">
+											<input type="file" class="form-file-input form-control" name="foto">
+										</div>
+									</div>
 									<div class="mb-3 row">
-										<label class="form-label">Nama Barang</label>
-										<input type="text" class="form-control" id="namabarang" placeholder="Masukkan Nama Barang" name="tnama">
+										<label class="form-label">Nama</label>
+										<input type="text" class="form-control" placeholder="Masukkan Nama barang" name="tnama" id="namabarang">
+									</div>
+									<div class="mb-3 row">
+										<label class="form-label">Ketegori</label>
+										<input type="text" class="form-control" placeholder="Masukkan Kategori" name="tkategori" id="kategoribarang">
 									</div>
 									<div class="mb-3 row">
 										<label class="form-label">Harga</label>
-										<input type="text" class="form-control" placeholder="Masukkan Harga" id="hargabarang" name="tharga">
+										<input type="text" class="form-control" placeholder="Masukkan Harga" name="tharga" id="hargabarang">
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
@@ -447,13 +476,14 @@
 	<script src="js/demo.js"></script>
 	<!-- <script src="js/styleSwitcher.js"></script> -->
 	<script>
-		function editmodal(id, nama, harga) {
+		function editmodal(id, nama, kategori,harga) {
 			// console.log(id + nama + email + password + nohp);
 
 			$('#idbarang').val(id);
 			$('#namabarang').val(nama);
+			$('#kategoribarang').val(kategori);
 			$('#hargabarang').val(harga);
-	
+
 
 			$('#Modaleditbarang').modal('show');
 		}

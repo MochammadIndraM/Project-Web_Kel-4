@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['username']) && $_GET['username'] != "" && isset($_GET['password']) && $_GET['password'] != "" ) {
         $username = $_GET['username'];
         $password = $_GET['password'];
-        $query = "SELECT * FROM user WHERE username='$username' AND password ='$password' AND role='customers'";
+        $query = "SELECT * FROM user WHERE username='$username' AND password ='$password' AND role='customer'";
         $cek = mysqli_query($kon, $query);
         $count = mysqli_num_rows($cek);
 

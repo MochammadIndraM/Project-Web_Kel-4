@@ -245,7 +245,7 @@
 							<span class="nav-text">Transaksi</span>
 						</a>
 						<ul aria-expanded="false">
-							<li><a href="form-element.html">Invoice</a></li>
+							<li><a href="transaksi-invoice.php">Invoice</a></li>
 							<li><a href="form-wizard.html">Bukti Pembayaran</a></li>
 						</ul>
 					</li>
@@ -871,7 +871,7 @@
 	<script src="js/custom.min.js"></script>
 	<script src="js/dlabnav-init.js"></script>
 	<script src="js/demo.js"></script>
-	<script src="js/styleSwitcher.js"></script>
+	<!-- <script src="js/styleSwitcher.js"></script> -->
 	<script>
 		function cardsCenter() {
 

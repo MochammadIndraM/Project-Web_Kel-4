@@ -227,7 +227,7 @@
 							<span class="nav-text">Transaksi</span>
 						</a>
 						<ul aria-expanded="false">
-							<li><a href="form-element.html">Invoice</a></li>
+							<li><a href="transaksi-invoice.php">Invoice</a></li>
 							<li><a href="form-wizard.html">Bukti Pembayaran</a></li>
 						</ul>
 					</li>
