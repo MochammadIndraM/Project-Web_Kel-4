@@ -295,7 +295,7 @@
 													<td scope="row">
 														<img src="upload/<?php echo $foto ?>" alt="" width="300" height="200">
 													</td>
-													<td scope="row"><?php echo $nama ?></td>
+													<td scope="row"><b><?php echo $nama ?></b></td>
 													<td scope="row"><?php echo $kategori ?></td>
 													<td scope="row"><?php echo $harga ?></td>
 													<td scope="row">
