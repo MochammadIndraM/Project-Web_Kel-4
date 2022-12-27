@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         //         'code' => 1,
         //         'status' => 'berhasil login',
         //         'id_user' => $id_user,
-        //         'username' => $username,
+        //         'username' => $username,.v
         //         'role' => $role
 
         //     ];

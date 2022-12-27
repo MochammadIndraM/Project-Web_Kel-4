@@ -236,20 +236,16 @@
 						<ul aria-expanded="false">
 							<li><a href="data-admin.php">Data Admin</a></li>
 							<li><a href="data-customer.php">Data Customer</a></li>
-							<li><a href="daftar-harga-print.php">Daftar Harga Print</a></li>
+							<li><a href="data-daftar-harga-print.html">Daftar Harga Print</a></li>
 							<li><a href="data-barang.php">Data Barang</a></li>
 						</ul>
 					</li>
-					<li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+					<li><a  href="transaksi-invoice.php" aria-expanded="false">
 							<i class="fas fa-file-alt"></i>
 							<span class="nav-text">Transaksi</span>
 						</a>
-						<ul aria-expanded="false">
-							<li><a href="transaksi-invoice.php">Invoice</a></li>
-							<li><a href="form-wizard.html">Bukti Pembayaran</a></li>
-						</ul>
 					</li>
-					<li><a href="javascript:void()" aria-expanded="false">
+					<li><a href="riwayat.php" aria-expanded="false">
 							<i class="fas fa-table"></i>
 							<span class="nav-text">Riwayat</span>
 						</a>
