@@ -123,7 +123,7 @@ if (isset($_POST['submit'])) {
         var p = '<?= $status ?>';
         if ( p == "sukses") {
             '<?php $_SESSION["status"] = "" ?>';
-                window.location.replace("index.php");
+                window.location.replace("dashboard.php");
 
         }
         if ( p == "errorepas") {

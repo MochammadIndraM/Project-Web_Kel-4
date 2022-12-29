@@ -6,15 +6,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['username']) && $_GET['username'] != "" && isset($_GET['password']) && $_GET['password'] != "" ) {
         $username = $_GET['username'];
         $password = $_GET['password'];
-        $query = "SELECT * FROM user WHERE username='$username' AND password ='$password' AND role='customer'";
+        $query = "SELECT * FROM user WHERE username='$username' AND password ='$password'";
         $cek = mysqli_query($kon, $query);
         $count = mysqli_num_rows($cek);
+        $res=$kon->query($query);
+        $reuslt = [];
 
-        if($count == 1){
-            echo json_encode("berhasil");
+        if($res->num_rows>0){
+        $row=$res->fetch_assoc();
+        $reuslt['loginStatus']=true;
+        $reuslt['message']="Login Berhasil";
+
+        $reuslt["userInfo"]=$row;
         } else {
-            echo json_encode("gagal");
-        }
+            $reuslt['loginStatus']=false;
+            $reuslt['message']="invalid Login Detail";
+        };
+
+        $json_data=json_encode($reuslt);
+
+        echo $json_data;
+
+        // if($count == 1){
+        //     echo json_encode("berhasil");
+        // } else {
+        //     echo json_encode("gagal");
+        // }
 
         // $id_user = "";
         // while ($hasilRow = mysqli_fetch_row($cek)) {
@@ -28,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         //         'code' => 1,
         //         'status' => 'berhasil login',
         //         'id_user' => $id_user,
-        //         'username' => $username,.v
+        //         'username' => $username,
         //         'role' => $role
 
         //     ];

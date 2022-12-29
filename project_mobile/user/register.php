@@ -3,11 +3,11 @@ header('Content-Type: application/json; charset=utf8');
 require_once('../koneksi.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['username']) && $_POST['username'] != "" && isset($_POST['email']) && $_POST['email'] != "" && isset($_POST['password']) && $_POST['password'] != "" && isset($_POST['ho_hp']) && $_POST['ho_hp'] != "" && isset($_POST['role']) && $_POST['role'] != "") {
+    if (isset($_POST['username']) && $_POST['username'] != "" && isset($_POST['email']) && $_POST['email'] != "" && isset($_POST['password']) && $_POST['password'] != "" && isset($_POST['no_hp']) && $_POST['no_hp'] != "" && isset($_POST['role']) && $_POST['role'] != "") {
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $no_hp = $_POST['ho_hp'];
+        $no_hp = $_POST['no_hp'];
         $role = $_POST['role'];
         $query = "SELECT * FROM user";
         $cek = mysqli_query($kon, $query);
@@ -17,7 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode("gagal");
             
         } else {
-            $insert = "INSERT INTO user(username,email,password,ho_hp,role) VALUES ('".$username."','".$email."','".$password."','".$no_hp."','".$role."')";
+            $sql2 = mysqli_query($kon, "SELECT max(id_user) as kodeTerbesar FROM user");
+            $data = mysqli_fetch_array($sql2);
+            $id_user = $data['kodeTerbesar'];
+            $urutan = (int) substr($id_user, 5,5);
+            $urutan++;
+            $huruf = "PRON";
+            $id_user = $huruf . sprintf("%03s",$urutan);
+            $insert = "INSERT INTO user(id_user,username,email,password,no_hp,role) VALUES ('".$id_user."','".$username."','".$email."','".$password."','".$no_hp."','".$role."')";
             $cek = mysqli_query($kon,$insert);
             if($cek){
                 echo json_encode("berhasil");

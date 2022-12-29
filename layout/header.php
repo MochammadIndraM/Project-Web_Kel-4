@@ -53,7 +53,7 @@
         ***********************************-->
 		<div class="nav-header">
 			<a class="brand-logo">
-			<svg width="180" height="94" viewBox="0 0 264 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<svg width="180" height="94" viewBox="0 0 264 94" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<ellipse cx="47.5" cy="49" rx="47.5" ry="45" fill="#886CC0" />
 					<path d="M29.0653 71L36.3097 27.3636H53.5256C56.821 27.3636 59.527 27.9957 61.6435 29.2599C63.7741 30.5099 65.2656 32.25 66.1179 34.4801C66.9844 36.696 67.1832 39.2528 66.7145 42.1506C66.2315 45.0625 65.1804 47.6264 63.5611 49.8423C61.956 52.044 59.8679 53.7628 57.2969 54.9986C54.7259 56.2344 51.7571 56.8523 48.3906 56.8523H37.4176L38.6321 49.4588H48.1136C49.9034 49.4588 51.4304 49.1534 52.6946 48.5426C53.973 47.9176 54.9886 47.0582 55.7415 45.9645C56.4943 44.8565 56.9844 43.5852 57.2116 42.1506C57.4531 40.6875 57.375 39.4162 56.9773 38.3366C56.5795 37.2571 55.848 36.419 54.7827 35.8224C53.7315 35.2116 52.3182 34.9062 50.5426 34.9062H44.321L38.2912 71H29.0653Z" fill="white" />
 					<path d="M140.52 25.2C140.52 26.9067 140.12 28.4667 139.32 29.88C138.547 31.2667 137.36 32.3867 135.76 33.24C134.187 34.0667 132.253 34.48 129.96 34.48H126.08V44H118.24V15.8H129.96C132.227 15.8 134.147 16.2 135.72 17C137.32 17.8 138.52 18.9067 139.32 20.32C140.12 21.7333 140.52 23.36 140.52 25.2ZM129.2 28.24C131.413 28.24 132.52 27.2267 132.52 25.2C132.52 23.1467 131.413 22.12 129.2 22.12H126.08V28.24H129.2ZM157.95 44L152.35 33.6H151.51V44H143.67V15.8H156.03C158.296 15.8 160.216 16.2 161.79 17C163.363 17.7733 164.55 18.8533 165.35 20.24C166.15 21.6 166.55 23.1333 166.55 24.84C166.55 26.76 166.016 28.4533 164.95 29.92C163.91 31.36 162.376 32.3867 160.35 33L166.71 44H157.95ZM151.51 28.24H155.39C156.456 28.24 157.256 27.9867 157.79 27.48C158.323 26.9733 158.59 26.24 158.59 25.28C158.59 24.3733 158.31 23.6667 157.75 23.16C157.216 22.6267 156.43 22.36 155.39 22.36H151.51V28.24ZM183.635 44.28C180.995 44.28 178.568 43.6667 176.355 42.44C174.142 41.1867 172.382 39.4667 171.075 37.28C169.795 35.0667 169.155 32.5733 169.155 29.8C169.155 27.0267 169.795 24.5467 171.075 22.36C172.382 20.1467 174.142 18.4267 176.355 17.2C178.568 15.9733 180.995 15.36 183.635 15.36C186.302 15.36 188.728 15.9733 190.915 17.2C193.128 18.4267 194.875 20.1467 196.155 22.36C197.435 24.5467 198.075 27.0267 198.075 29.8C198.075 32.5733 197.435 35.0667 196.155 37.28C194.875 39.4667 193.128 41.1867 190.915 42.44C188.702 43.6667 186.275 44.28 183.635 44.28ZM183.635 37C185.635 37 187.208 36.3467 188.355 35.04C189.528 33.7333 190.115 31.9867 190.115 29.8C190.115 27.56 189.528 25.8 188.355 24.52C187.208 23.2133 185.635 22.56 183.635 22.56C181.608 22.56 180.022 23.2133 178.875 24.52C177.728 25.8 177.155 27.56 177.155 29.8C177.155 32.0133 177.728 33.7733 178.875 35.08C180.022 36.36 181.608 37 183.635 37ZM227.719 44H219.879L209.439 28.24V44H201.599V15.8H209.439L219.879 31.76V15.8H227.719V44Z" fill="#886CC0" />
@@ -72,95 +72,10 @@
 					<div class="collapse navbar-collapse justify-content-between">
 						<div class="header-left">
 							<div class="dashboard_bar">
-								Transaksi
+								<p id="time" onload="currentTime()"></p>
 							</div>
 						</div>
 						<ul class="navbar-nav header-right">
-
-							<li class="nav-item dropdown notification_dropdown">
-								<a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
-									<svg width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M23.3333 19.8333H23.1187C23.2568 19.4597 23.3295 19.065 23.3333 18.6666V12.8333C23.3294 10.7663 22.6402 8.75902 21.3735 7.12565C20.1068 5.49228 18.3343 4.32508 16.3333 3.80679V3.49996C16.3333 2.88112 16.0875 2.28763 15.6499 1.85004C15.2123 1.41246 14.6188 1.16663 14 1.16663C13.3812 1.16663 12.7877 1.41246 12.3501 1.85004C11.9125 2.28763 11.6667 2.88112 11.6667 3.49996V3.80679C9.66574 4.32508 7.89317 5.49228 6.6265 7.12565C5.35983 8.75902 4.67058 10.7663 4.66667 12.8333V18.6666C4.67053 19.065 4.74316 19.4597 4.88133 19.8333H4.66667C4.35725 19.8333 4.0605 19.9562 3.84171 20.175C3.62292 20.3938 3.5 20.6905 3.5 21C3.5 21.3094 3.62292 21.6061 3.84171 21.8249C4.0605 22.0437 4.35725 22.1666 4.66667 22.1666H23.3333C23.6428 22.1666 23.9395 22.0437 24.1583 21.8249C24.3771 21.6061 24.5 21.3094 24.5 21C24.5 20.6905 24.3771 20.3938 24.1583 20.175C23.9395 19.9562 23.6428 19.8333 23.3333 19.8333Z" fill="#717579"></path>
-										<path d="M9.9819 24.5C10.3863 25.2088 10.971 25.7981 11.6766 26.2079C12.3823 26.6178 13.1838 26.8337 13.9999 26.8337C14.816 26.8337 15.6175 26.6178 16.3232 26.2079C17.0288 25.7981 17.6135 25.2088 18.0179 24.5H9.9819Z" fill="#717579"></path>
-									</svg>
-									<span class="badge light text-white bg-warning rounded-circle">12</span>
-								</a>
-								<div class="dropdown-menu dropdown-menu-end">
-									<div id="DZ_W_Notification1" class="widget-media dlab-scroll p-3" style="height:380px;">
-										<ul class="timeline">
-											<li>
-												<div class="timeline-panel">
-													<div class="media me-2">
-														<img alt="image" width="50" src="images/avatar/1.jpg">
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Dr sultads Send you Photo</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media me-2 media-info">
-														KG
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Resport created successfully</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media me-2 media-success">
-														<i class="fa fa-home"></i>
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Reminder : Treatment Time!</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media me-2">
-														<img alt="image" width="50" src="images/avatar/1.jpg">
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Dr sultads Send you Photo</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media me-2 media-danger">
-														KG
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Resport created successfully</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media me-2 media-primary">
-														<i class="fa fa-home"></i>
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Reminder : Treatment Time!</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-										</ul>
-									</div>
-									<a class="all-notification" href="javascript:void(0);">See all notifications <i class="ti-arrow-end"></i></a>
-								</div>
-							</li>
-
-
 							<li class="nav-item dropdown  header-profile">
 								<a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
 									<img src="images/user.jpg" width="56" alt="">
@@ -189,3 +104,54 @@
 				</nav>
 			</div>
 		</div>
+		<script>
+			// Time
+			function currentTime() {
+
+				let date = new Date();
+				let hh = date.getHours();
+				let mm = date.getMinutes();
+				let ss = date.getSeconds();
+
+				hh = (hh < 10) ? "0" + hh : hh;
+				mm = (mm < 10) ? "0" + mm : mm;
+				ss = (ss < 10) ? "0" + ss : ss;
+
+				let time = hh + " : " + mm + " : " + ss;
+
+				document.getElementById("time").innerText = time;
+
+				var t = setTimeout(function() {
+					currentTime()
+				}, 1000);
+
+			}
+
+			window.onresize = function() {
+				runchart();
+			}
+
+			currentTime();
+
+			// Date
+			function datenow() {
+				var today = new Date();
+				var dd = String(today.getDate()).padStart(2, '0'); //pdStart tujuannya agar semua item memiliki panjang yang diinginkan
+				var mm = String(today.getMonth()); //January is 0!
+				var yyyy = today.getFullYear();
+
+				var cars = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+
+				for (i = 0; i < cars.length; i++) {
+					if (i == mm) {
+						mm = cars[i];
+						break;
+					}
+				}
+
+				today = dd + ' ' + mm + ' ' + yyyy;
+
+				document.getElementById("date").innerText = today;
+			}
+			datenow();
+		</script>

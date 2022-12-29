@@ -170,7 +170,7 @@ include 'layout/sidebar.php';
 												<tr>
 													<th scope="row"><?php echo $id ?></th>
 													<th scope="row"><?php echo $tanggal ?></th>
-													<th scope="row"><?php echo $file ?></th>
+													<th scope="row"><a href="project_mobile/transaksi/images/<?php echo $file ?>"><?php echo $file ?></a></th>
 													<th scope="row"><?php echo $idprint ?></th>
 													<th scope="row"><?php echo $berapa_kali_print ?></th>
 													<th scope="row"><?php echo $jumlah_kertas ?></th>
