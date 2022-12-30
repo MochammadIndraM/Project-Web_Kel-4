@@ -725,7 +725,7 @@ progress {
 .container-lg,
 .container-xl,
 .container-xxl {
-  background-color: #ebebeb;
+  background-color: #f4f1f1;
   width: 100%;
   padding-right: var(--bs-gutter-x, 15px);
   padding-left: var(--bs-gutter-x, 15px);

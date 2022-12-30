@@ -70,14 +70,16 @@ if (isset($_POST['submit'])) {
 <body class="vh-100">
     <div class="authincation h-100">
         <div class="container h-100">
+            
             <div class="row justify-content-center h-100 align-items-center">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="authincation-content">
                         <div class="row no-gutters">
                             <div class="col-xl-12">
                                 <div class="auth-form">
 
                                     <h4 class="text-center mb-4">Sign in your account</h4>
+                                    
                                     <form action="page-login.php" method="post">
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Email</strong></label>
