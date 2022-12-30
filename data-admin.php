@@ -37,13 +37,6 @@ include 'layout/sidebar.php';
 									$sql2   = "SELECT * FROM user WHERE role = 'admin';";
 									$q2     = mysqli_query($koneksi, $sql2);
 									$urut   = 1;
-									$sql1 = mysqli_query($koneksi, "SELECT max(id_user) as kodeTerbesar FROM user");
-									$data = mysqli_fetch_array($sql1);
-									$id_user = $data['kodeTerbesar'];
-									$urutan = (int) substr($id_user, 5, 5);
-									$urutan++;
-									$huruf = "AD";
-									$id_user = $huruf . sprintf("%03s", $urutan);
 									while ($r2 = mysqli_fetch_array($q2)) {
 										$id         = $r2['id_user'];
 										$nama       = $r2['username'];
@@ -54,7 +47,7 @@ include 'layout/sidebar.php';
 
 									?>
 										<tr>
-											<th scope="row"><?php echo $id ?></th>
+											<th scope="row"><?php echo $urut++ ?></th>
 											<td scope="row"><?php echo $nama ?></td>
 											<td scope="row"><?php echo $email ?></td>
 											<td scope="row"><?php echo $password ?></td>

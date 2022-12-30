@@ -9401,7 +9401,7 @@ label {
         justify-content: center; } }
   .nav-header .brand-title {
     margin-left: 0.9375rem;
-    color: #000;
+    color: #886CC0;
     margin-top: 1rem; }
     [data-theme-version="dark"] .nav-header .brand-title {
       background-position: 0 120%; }
@@ -9409,7 +9409,7 @@ label {
       line-height: 0;
       font-weight: 600;
       font-size: 2rem;
-      color: #4E3F6B;
+      color: #886CC0;
       margin-bottom: 15px; }
       .nav-header .brand-title h2 span, .nav-header .brand-title .h2 span {
         opacity: 0.2; }
@@ -11624,6 +11624,7 @@ svg.pulse-svg {
   text-align: right;
   right: auto; }
   [direction="rtl"] .nav-header .brand-title {
+    
     margin-left: 0;
     margin-right: 0.9375rem; }
   [direction="rtl"] .nav-header .brand-logo {
