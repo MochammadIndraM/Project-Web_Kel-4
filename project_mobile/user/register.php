@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode("gagal");
             
         } else {
-            $sql2 = mysqli_query($kon, "SELECT max(id_user) as kodeTerbesar FROM user");
+            $sql2 = mysqli_query($kon, "SELECT max(id_user) as kodeTerbesar FROM user WHERE role 'customer'");
             $data = mysqli_fetch_array($sql2);
             $id_user = $data['kodeTerbesar'];
             $urutan = (int) substr($id_user, 5,5);

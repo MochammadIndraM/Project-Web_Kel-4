@@ -18,7 +18,7 @@ include 'layout/sidebar.php';
 
 							</div>
 							<div class="card-body">
-								<button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#Modaltambahcustomer">Tambah Customer</button>
+								
 								<div class="table-responsive">
 									<table class="table table-responsive-md">
 										<thead>
@@ -53,7 +53,6 @@ include 'layout/sidebar.php';
 													<td scope="row"><?php echo $password ?></td>
 													<td scope="row"><?php echo $nohp ?></td>
 													<td scope="row">
-														<button type="button" class="btn btn-warning mb-2" onclick="editmodal('<?= $id ?>', '<?= $nama ?>', '<?= $email ?>', '<?= $password ?>', '<?= $nohp ?>')">Edit</button>
 														<button type="button" class="btn btn-danger mb-2" onclick="hapusmodal('<?= $id ?>')">Hapus</button>
 													</td>
 												</tr>
