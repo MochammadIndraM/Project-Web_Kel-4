@@ -67,83 +67,7 @@ include 'layout/sidebar.php';
 						</div>
 					</div>
 				</div>
-				<!-- Modal Tambah -->
-				<div class="modal fade" id="Modaltambahcustomer" style="display: none;" aria-hidden="true">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">Tambah Customer</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="modal">
-								</button>
-							</div>
-							<div class="modal-body">
-								<form action="controllers/crudcustomer.php" method="post">
-									<div class="mb-3 row">
-										<label class="form-label">Nama</label>
-										<input type="text" class="form-control" placeholder="Masukkan Nama" name="tnama">
-									</div>
-									<div class="mb-3 row">
-										<label class="form-label">Email</label>
-										<input type="text" class="form-control" placeholder="Masukkan Email" name="temail">
-									</div>
-									<div class="mb-3 row">
-										<label class="form-label">Password</label>
-										<input type="text" class="form-control" placeholder=" Masukkan Password" name="tpassword">
-									</div>
-									<div class="mb-3 row">
-										<label class="form-label">No HP</label>
-										<input type="text" class="form-control" placeholder="Masukkan No HP" name="tnohp">
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-										<button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Modal Tambah End -->
-
-				<!-- Modal Edit -->
-				<div class="modal fade" id="Modaleditcustomer" style="display: none;" aria-hidden="true">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">Edit Data Customer</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="modal">
-								</button>
-							</div>
-							<div class="modal-body">
-								<form action="controllers/crudcustomer.php" method="post">
-									<input type="hidden" class="form-control" id="idcustomer" name="tiduser">
-									<div class="mb-3 row">
-										<label class="form-label">Nama</label>
-										<input type="text" class="form-control" id="namacustomer" placeholder="Masukkan Nama" name="tnama">
-									</div>
-									<div class="mb-3 row">
-										<label class="form-label">Email</label>
-										<input type="text" class="form-control" placeholder="Masukkan Email" id="emailcustomer" name="temail">
-									</div>
-									<div class="mb-3 row">
-										<label class="form-label">Password</label>
-										<input type="text" class="form-control" placeholder=" Masukkan Password" id="passwordcustomer" name="tpassword">
-									</div>
-									<div class="mb-3 row">
-										<label class="form-label">No HP</label>
-										<input type="text" class="form-control" placeholder="Masukkan No HP" id="nohpcustomer" name="tnohp">
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-										<button type="submit" class="btn btn-primary" name="edit">Edit</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Modal Edit End -->
-
+				
 				<!-- Modal Hapus -->
 				<div class="modal fade" id="Modalhapuscustomer" style="display: none;" aria-hidden="true">
 					<div class="modal-dialog" role="document">
@@ -228,17 +152,7 @@ include 'layout/sidebar.php';
 	<script src="js/demo.js"></script>
 	<!-- <script src="js/styleSwitcher.js"></script> -->
 	<script>
-		function editmodal(id, nama, email, password, nohp) {
-			// console.log(id + nama + email + password + nohp);
-
-			$('#idcustomer').val(id);
-			$('#namacustomer').val(nama);
-			$('#emailcustomer').val(email);
-			$('#passwordcustomer').val(password);
-			$('#nohpcustomer').val(nohp);
-
-			$('#Modaleditcustomer').modal('show');
-		}
+		
 
 		function hapusmodal(id) {
 			// console.log(id + nama + email + password + nohp);

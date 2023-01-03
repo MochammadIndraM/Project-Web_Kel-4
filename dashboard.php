@@ -74,7 +74,7 @@ include 'koneksi.php';
 										
 										<div class="tab-content">
 										<?php include 'koneksi.php';
-									$sql2   = "SELECT COUNT(transaksi.id_print) AS terbesar, list_harga_print.jenis_print FROM transaksi JOIN list_harga_print ON transaksi.id_print = list_harga_print.id_print GROUP BY(transaksi.id_print) ORDER BY terbesar DESC";
+									$sql2   = "SELECT COUNT(transaksi.id_print) AS terbesar, list_harga_print.jenis_print FROM transaksi JOIN list_harga_print ON transaksi.id_print = list_harga_print.id_print GROUP BY(transaksi.id_print) ORDER BY terbesar ASC";
 									$q2     = mysqli_query($koneksi, $sql2);
 						
 									while ($r2 = mysqli_fetch_array($q2)) {

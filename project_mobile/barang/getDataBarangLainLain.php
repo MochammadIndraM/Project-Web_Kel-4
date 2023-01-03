@@ -1,7 +1,7 @@
 <?php
 require_once('../koneksi.php');
 
-$result = $kon->query("SELECT * FROM barang WHERE kategori='alat tulis'");
+$result = $kon->query("SELECT * FROM barang WHERE kategori='lain lain'");
 $list = array();
 if($result){
     while($row= mysqli_fetch_assoc($result)){
